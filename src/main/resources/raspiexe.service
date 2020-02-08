@@ -1,0 +1,16 @@
+[Unit]
+Description=ROT13 demo service
+After=network.target
+StartLimitIntervalSec=0
+StartLimitBurst=5
+StartLimitIntervalSec=10
+
+[Service]
+Type=simple
+Restart=always
+RestartSec=5
+User=root
+ExecStart=java -jar /root/raspi-executor-1.0.jar
+
+[Install]
+WantedBy=multi-user.target
