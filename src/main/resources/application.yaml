@@ -1,0 +1,11 @@
+
+
+server:
+  port: 36666
+spring:
+  application:
+    name: Raspi Executor
+info:
+  appName: Raspi Executor
+  description: An app to run actions on raspi using http
+  version: 1.0
