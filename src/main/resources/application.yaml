@@ -1,5 +1,3 @@
-
-
 server:
   port: 36666
 spring:
@@ -9,3 +7,8 @@ info:
   appName: Raspi Executor
   description: An app to run actions on raspi using http
   version: 1.0
+springdoc:
+  swagger-ui:
+    path: /docs.html
+  api-docs:
+    path: /api-docs

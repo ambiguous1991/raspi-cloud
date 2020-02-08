@@ -18,7 +18,7 @@ public class CommandLineRunner implements CommandLineService {
         }
         catch (Exception e) {
             stopWatch.stop();
-            builder.result(e.getMessage()).exception(true).tta(stopWatch.getTotalTimeMillis());
+            builder.result(e.toString()).exception(true).tta(stopWatch.getTotalTimeMillis());
         }
         return builder.build();
     }
