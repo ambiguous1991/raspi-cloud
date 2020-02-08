@@ -4,6 +4,10 @@ import org.springframework.util.StopWatch;
 import pl.com.bartusiak.raspiexecutor.dto.Payload;
 import pl.com.bartusiak.raspiexecutor.dto.ResultWrapper;
 
+import java.util.List;
+import java.util.stream.Collectors;
+import java.util.stream.Stream;
+
 public class CommandLineRunner implements CommandLineService {
 
     public ResultWrapper executePayload(Payload payload) {
@@ -16,11 +20,12 @@ public class CommandLineRunner implements CommandLineService {
             Process exec = Runtime.getRuntime().exec(command);
             stopWatch.stop();
             String result =  new String(exec.getInputStream().readAllBytes());
-            builder.result(result).exception(false).tta(stopWatch.getTotalTimeMillis());
+            builder.result(List.of(result.split("\n"))).exception(false).tta(stopWatch.getTotalTimeMillis());
         }
         catch (Exception e) {
             stopWatch.stop();
-            builder.result(e.toString()).exception(true).tta(stopWatch.getTotalTimeMillis());
+            List<String> stack = Stream.of(e.getStackTrace()).map(StackTraceElement::toString).collect(Collectors.toList());
+            builder.result(stack).exception(true).tta(stopWatch.getTotalTimeMillis());
         }
         return builder.build();
     }
