@@ -1,29 +1,37 @@
+eureka:
+  client:
+    register-with-eureka: false
+    fetch-registry: false
+info:
+  appName: Raspi Executor
+  description: An app to run actions on raspi using http
+  version: 1.0
+logging:
+  level:
+    com.netflix.eureka: off
+    com.netflix.discovery: off
+management:
+  endpoints:
+    web:
+      cors:
+        allowed-origins: "*"
 server:
-  port: 36666
+  port: 8888
   address: 0.0.0.0
 spring:
+  application:
+    name: Raspi Executor
   banner:
     image:
       location: classpath:banner.txt
-  application:
-    name: Raspi Executor
   cloud:
     config:
       server:
         prefix: /configuration
         git:
           uri: https://github.com/ambiguous1991/configuration-properties
-info:
-  appName: Raspi Executor
-  description: An app to run actions on raspi using http
-  version: 1.0
 springdoc:
+  api-docs:
+    path: /api-docs
   swagger-ui:
     path: /docs.html
-  api-docs:
-    path: /api-docss
-management:
-  endpoints:
-    web:
-      cors:
-        allowed-origins: "*"
