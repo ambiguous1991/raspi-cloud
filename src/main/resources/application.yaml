@@ -2,8 +2,17 @@ server:
   port: 36666
   address: 0.0.0.0
 spring:
+  banner:
+    image:
+      location: classpath:banner.txt
   application:
     name: Raspi Executor
+  cloud:
+    config:
+      server:
+        prefix: /configuration
+        git:
+          uri: https://github.com/ambiguous1991/configuration-properties
 info:
   appName: Raspi Executor
   description: An app to run actions on raspi using http

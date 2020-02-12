@@ -10,14 +10,15 @@
 	</parent>
 
 	<groupId>pl.com.bartusiak</groupId>
-	<artifactId>raspi-executor</artifactId>
+	<artifactId>raspi-cloud</artifactId>
 	<version>1.0</version>
 
-	<name>raspi-executor</name>
-	<description>An app to run actions on raspi using http</description>
+	<name>raspi-cloud</name>
+	<description>An app adding spring cloud capabilities to raspi</description>
 
 	<properties>
 		<java.version>11</java.version>
+		<spring-cloud.version>Hoxton.SR1</spring-cloud.version>
 	</properties>
 
 	<dependencies>
@@ -33,6 +34,10 @@
 		<dependency>
 			<groupId>org.springframework.boot</groupId>
 			<artifactId>spring-boot-devtools</artifactId>
+		</dependency>
+		<dependency>
+			<groupId>org.springframework.cloud</groupId>
+			<artifactId>spring-cloud-config-server</artifactId>
 		</dependency>
 		<dependency>
 			<groupId>org.springdoc</groupId>
@@ -57,6 +62,18 @@
 				<scope>provided</scope>
 			</dependency>
 	</dependencies>
+
+	<dependencyManagement>
+		<dependencies>
+			<dependency>
+				<groupId>org.springframework.cloud</groupId>
+				<artifactId>spring-cloud-dependencies</artifactId>
+				<version>${spring-cloud.version}</version>
+				<type>pom</type>
+				<scope>import</scope>
+			</dependency>
+		</dependencies>
+	</dependencyManagement>
 
 	<build>
 		<plugins>
