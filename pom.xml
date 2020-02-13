@@ -10,10 +10,10 @@
 	</parent>
 
 	<groupId>pl.com.bartusiak</groupId>
-	<artifactId>raspi-cloud</artifactId>
+	<artifactId>raspi-exe</artifactId>
 	<version>1.0</version>
 
-	<name>raspi-cloud</name>
+	<name>raspi-exe</name>
 	<description>An app adding spring cloud capabilities to raspi</description>
 
 	<properties>
