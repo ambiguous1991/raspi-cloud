@@ -14,9 +14,8 @@ import java.util.regex.Pattern;
 public class TemperatureServiceImpl implements TemperatureService {
 
     private CommandLineService commandLineService;
-    private int capacity;
-    private final String tempCommand = "vcgencmd measure_temp";
     private EvictionQueue<Double> evictionQueue;
+    private String tempCommand;
 
     @Scheduled(fixedRate = 5000)
     @Override

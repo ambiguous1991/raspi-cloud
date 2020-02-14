@@ -1,5 +1,6 @@
 package pl.com.bartusiak.raspiexecutor.configuration;
 
+import org.springframework.beans.factory.annotation.Value;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
 import pl.com.bartusiak.raspiexecutor.datastores.EvictionQueue;
@@ -17,7 +18,9 @@ public class ExecutorConfiguration {
     }
 
     @Bean
-    public TemperatureService temperatureService(CommandLineService commandLineService) {
-        return new TemperatureServiceImpl(commandLineService, 20, new EvictionQueue<>(10));
+    public TemperatureService temperatureService(CommandLineService commandLineService,
+                                                 @Value("${application.temp.capacity}") Integer capacity,
+                                                 @Value("${application.temp.command}") String command) {
+        return new TemperatureServiceImpl(commandLineService, new EvictionQueue<>(capacity), command);
     }
 }

@@ -1,3 +1,7 @@
+application:
+  temp:
+    capacity: 20
+    command: vcgencmd measure_temp
 eureka:
   client:
     register-with-eureka: false
