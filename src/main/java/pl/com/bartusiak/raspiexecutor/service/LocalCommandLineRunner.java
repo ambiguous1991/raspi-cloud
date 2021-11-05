@@ -8,7 +8,7 @@ import java.util.List;
 import java.util.stream.Collectors;
 import java.util.stream.Stream;
 
-public class CommandLineRunner implements CommandLineService {
+public class LocalCommandLineRunner implements CommandLineService {
 
     public ResultWrapper executePayload(Payload payload) {
         final ResultWrapper.ResultWrapperBuilder builder = ResultWrapper.builder();
