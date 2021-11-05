@@ -1,0 +1,9 @@
+version: "3"
+
+services:
+  angular_raspi_ui:
+    container_name: raspi-exe
+    image: satanicus1991/raspi-exe:latest
+    ports:
+      - "8888:8888/tcp"
+    restart: unless-stopped
