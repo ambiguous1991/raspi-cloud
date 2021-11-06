@@ -4,7 +4,10 @@ services:
   raspi_exe:
     container_name: raspi-exe
     image: satanicus1991/raspi-exe:latest
+    environment:
+      - SSH_AUTH_SOCK=/ssh-agent
     ports:
       - "8888:8888/tcp"
     restart: unless-stopped
-    network_mode: host
+    volumes:
+      - ${SSH_AUTH_SOCK}:/ssh-agent
