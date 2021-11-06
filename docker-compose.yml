@@ -1,7 +1,7 @@
 version: "3"
 
 services:
-  angular_raspi_ui:
+  raspi_exe:
     container_name: raspi-exe
     image: satanicus1991/raspi-exe:latest
     ports:
