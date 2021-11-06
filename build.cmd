@@ -1,0 +1,1 @@
+docker buildx build --platform=linux/amd64,linux/arm/v7,linux/arm64 -t satanicus1991/raspi-exe:1.1.0 -t satanicus1991/raspi-exe:latest --push .
