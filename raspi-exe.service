@@ -1,0 +1,14 @@
+[Unit]
+Description=Raspi-exe
+After=network.target
+StartLimitIntervalSec=0
+
+[Service]
+Type=simple
+Restart=always
+RestartSec=1
+User=root
+ExecStart=java -jar /usr/src/raspi-exe-1.0.jar --spring.profiles.active=prod &
+
+[Install]
+WantedBy=multi-user.target
