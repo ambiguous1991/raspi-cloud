@@ -7,3 +7,4 @@ services:
     ports:
       - "8888:8888/tcp"
     restart: unless-stopped
+    network_mode: host
