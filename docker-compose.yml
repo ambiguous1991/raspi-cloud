@@ -1,13 +1,17 @@
 version: "3"
 
 services:
-  raspi_exe:
-    container_name: raspi-exe
-    image: satanicus1991/raspi-exe:latest
-    environment:
-      - SSH_AUTH_SOCK=/ssh-agent
+  angular_raspi_ui:
+    container_name: angular-raspi-ui
+    image: satanicus1991/angular-raspi-ui:1.2.0
     ports:
-      - "8888:8888/tcp"
+      - "80:80/tcp"
+    environment:
+      HOST_IP_ADDRESS: 192.168.0.29
     restart: unless-stopped
-    volumes:
-      - ${SSH_AUTH_SOCK}:/ssh-agent
+  torrent_backend_service:
+    container_name: torrent-backend-service
+    image: satanicus1991/torrent-backend-service:1.2.0
+    ports:
+      - "3001:3001/tcp"
+    restart: unless-stopped
